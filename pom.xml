@@ -20,25 +20,63 @@
             <version>3.8.1</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- pour Jetty et rest -->
         <dependency>
-            <groupId>org.jboss.resteasy</groupId>
-            <artifactId>resteasy-jaxrs</artifactId>
-            <version>3.0.5.Final</version>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-server</artifactId>
+            <version>9.2.3.v20140905</version>
         </dependency>
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>3.0.1</version>
-            <scope>provided</scope>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-servlet</artifactId>
+            <version>9.2.3.v20140905</version>
         </dependency>
         <dependency>
-            <groupId>net.sf.xmldb-org</groupId>
-            <artifactId>xmldb-api</artifactId>
-            <version>1.4.0</version>
+            <groupId>org.glassfish.jersey.core</groupId>
+            <artifactId>jersey-server</artifactId>
+            <version>2.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <artifactId>jersey-container-servlet-core</artifactId>
+            <version>2.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <artifactId>jersey-container-jetty-http</artifactId>
+            <version>2.7</version>
+        </dependency>
+        <!-- dep xquery-->
+
+        <dependency>
+            <artifactId>exist-xqj</artifactId>
+            <groupId>net.xqj.exis</groupId>
+            <version>1.0.1</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/exist-xqj-1.0.1.jar</systemPath>
+        </dependency>
+        <dependency>
+            <artifactId>xqj2</artifactId>
+            <groupId>xqj2</groupId>
+            <version>0.0.1</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/xqj2-0.0.1.jar</systemPath>
+        </dependency>
+        <dependency>
+            <artifactId>xqjapi</artifactId>
+            <groupId>xqjapi</groupId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/xqjapi.jar</systemPath>
         </dependency>
 
-
-
+        <!-- transformer le resultat en Json -->
+        <dependency>
+            <groupId>com.owlike</groupId>
+            <artifactId>genson</artifactId>
+            <version>0.99</version>
+        </dependency>
     </dependencies>
     <build>
         <finalName>projet-mgag</finalName>
