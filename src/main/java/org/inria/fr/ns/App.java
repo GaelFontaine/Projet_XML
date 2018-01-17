@@ -10,6 +10,7 @@ import org.glassfish.jersey.servlet.ServletContainer;
 public class App {
     public static void main(String[] args) {
         ResourceConfig config = new ResourceConfig();
+        config.register(CORSResponseFilter.class);
         config.packages("org.inria.fr.ns");
         ServletHolder servlet = new ServletHolder(new ServletContainer(config));
 
@@ -17,6 +18,7 @@ public class App {
         Server server = new Server(9080);
         ServletContextHandler context = new ServletContextHandler(server, "/*");
         context.addServlet(servlet, "/*");
+
 
 
         try {
