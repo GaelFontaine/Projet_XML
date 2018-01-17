@@ -2,7 +2,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.inria.fr.ns</groupId>
-  <artifactId>projet-mgag</artifactId>
+  <artifactId>projet-xml-TDFD</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>projet-mgag Maven Webapp</name>
@@ -77,6 +77,15 @@
             <artifactId>genson</artifactId>
             <version>0.99</version>
         </dependency>
+
+        <!-- for json -->
+
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20090211</version>
+        </dependency>
+
     </dependencies>
     <build>
         <finalName>projet-mgag</finalName>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Les Ctrs</h1>
+    <table id="ctrsTable" border="1">
+        <tr>
+            <td>Date</td>
+            <td>idgef</td>
+            <td>Pers</td>
+            <td>Libelle</td>
+        </tr>
+    </table>
+    <script>
+        var data = []
+        fetch('http://localhost:9080/cr/infoCentre')
+            .then(
+                function(response) {
+                    if (response.status !== 200) {
+                        console.log('Looks like there was a problem. Status Code: ' +
+                            response.status);
+                        return;
+                    }
+                    response.json().then(function(data) {
+                        //console.log(data);
+                        var ctrs = document.getElementById("ctrsTable");
+
+                        for(var i = 0; i<data.length; i++){
+                            ctrs.innerHTML += "<tr>\n" +
+                                "            <td>"+data[i].date_ouverture+"</td>\n" +
+                                "            <td>"+data[i].idgef+"</td>\n" +
+                                "            <td>"+data[i].nbPers+"</td>\n" +
+                                "            <td>"+data[i].libelle+"</td>\n" +
+                                "        </tr>";
+                        }
+                    });
+
+                })
+    </script>
+</body>
+</html>

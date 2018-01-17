@@ -1,9 +1,7 @@
 package org.inria.fr.ns.models;
 
-import java.util.Date;
-
 import javax.xml.bind.annotation.*;
-import javax.xml.datatype.XMLGregorianCalendar;
+import java.util.Date;
 
 
 @XmlRootElement(name = "infoCentre")
@@ -21,7 +19,7 @@ public class CentreDeRecherche {
     @XmlElement(required = true)
     protected String numnatstructrep;
     @XmlElement(required = true)
-    protected String date_ouverture;
+    protected Date date_ouverture;
     @XmlElement(required = true)
     protected String sigle;
     @XmlElement(required = true)
@@ -57,11 +55,11 @@ public class CentreDeRecherche {
         this.numnatstructrep = numnatstructrep;
     }
 
-    public String getDate_ouverture() {
+    public Date getDate_ouverture() {
         return date_ouverture;
     }
 
-    public void setDate_ouverture(String date_ouverture) {
+    public void setDate_ouverture(Date date_ouverture) {
         this.date_ouverture = date_ouverture;
     }
 
