@@ -29,6 +29,9 @@ public class EPService {
         String result ="";
         for (StructureInria e : equipes.getStructureinria()) {
             result += "<equipe>" ;
+            result += "<id>"+e.getSiidEquipeGroupe()+"</id>";
+            result += "<nomRes>"+e.getEntite().get(0).getPersonne().getNom()+"</nomRes>";
+            result += "<prenomRes>"+e.getEntite().get(0).getPersonne().getPrenom()+"</prenomRes>";
             result += "<sigle>"+e.getSigle()+"</sigle>";
             result += "<centre>"+e.getEntite().get(0).getAdressegeographique().getCri().getValue()+"</centre>";
             result += "<domaine>"+e.getDomaine().get(0).getValue()+"</domaine>";

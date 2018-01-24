@@ -2,12 +2,13 @@
 // Ce fichier a été généré par l'implémentation de référence JavaTM Architecture for XML Binding (JAXB), v2.2.11 
 // Voir <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Toute modification apportée à ce fichier sera perdue lors de la recompilation du schéma source. 
-// Généré le : 2018.01.17 à 01:24:44 PM CET 
+// Généré le : 2018.01.24 à 06:22:51 PM CET 
 //
 
 
 package org.inria.fr.ns.sr;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -17,41 +18,48 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import org.inria.fr.ns.adapters.DateAdapter;
 
 
 /**
- * <p>Classe Java pour anonymous complex type.
+ * 
+ * 	Définition d'une EPI
+ *       
+ * 
+ * <p>Classe Java pour structureinria element declaration.
  * 
  * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
- * &lt;complexType&gt;
- *   &lt;complexContent&gt;
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *       &lt;sequence&gt;
- *         &lt;element name="siidEquipeGroupe" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="urlTeam" type="{http://ns.inria.fr/dsi/si/app/bastri}urlTeam" maxOccurs="unbounded" minOccurs="0"/&gt;
- *         &lt;element name="keywords" type="{http://ns.inria.fr/dsi/si/app/bastri}keywords" maxOccurs="unbounded" minOccurs="0"/&gt;
- *         &lt;element name="sigle" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="sigle_html" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="sigle_latex" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="typestructure" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="libellefr" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="libelleen" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="domaine" type="{http://ns.inria.fr/dsi/si/app/bastri}domaine" maxOccurs="2"/&gt;
- *         &lt;element name="theme" type="{http://ns.inria.fr/dsi/si/app/bastri}theme" maxOccurs="2"/&gt;
- *         &lt;element name="date_creation" type="{http://www.w3.org/2001/XMLSchema}date" minOccurs="0"/&gt;
- *         &lt;element name="date_fermeture" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="entite" type="{http://ns.inria.fr/dsi/si/app/bastri}entite" maxOccurs="unbounded"/&gt;
- *         &lt;element name="idhal" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="resume" type="{http://ns.inria.fr/dsi/si/app/bastri}resume" maxOccurs="2" minOccurs="0"/&gt;
- *       &lt;/sequence&gt;
- *       &lt;attribute name="siid" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
- *       &lt;attribute name="numnatstruct" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
- *     &lt;/restriction&gt;
- *   &lt;/complexContent&gt;
- * &lt;/complexType&gt;
+ * &lt;element name="structureinria"&gt;
+ *   &lt;complexType&gt;
+ *     &lt;complexContent&gt;
+ *       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *         &lt;sequence&gt;
+ *           &lt;element name="siidEquipeGroupe" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *           &lt;element name="urlTeam" type="{http://ns.inria.fr/dsi/si/app/bastri}urlTeam" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *           &lt;element name="keywords" type="{http://ns.inria.fr/dsi/si/app/bastri}keywords" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *           &lt;element name="sigle" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *           &lt;element name="sigle_html" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *           &lt;element name="sigle_latex" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *           &lt;element name="typestructure" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *           &lt;element name="libellefr" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *           &lt;element name="libelleen" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *           &lt;element name="domaine" type="{http://ns.inria.fr/dsi/si/app/bastri}domaine" maxOccurs="2"/&gt;
+ *           &lt;element name="theme" type="{http://ns.inria.fr/dsi/si/app/bastri}theme" maxOccurs="2"/&gt;
+ *           &lt;element name="date_creation" type="{http://www.w3.org/2001/XMLSchema}date" minOccurs="0"/&gt;
+ *           &lt;element name="date_fermeture" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *           &lt;element name="entite" type="{http://ns.inria.fr/dsi/si/app/bastri}entite" maxOccurs="unbounded"/&gt;
+ *           &lt;element name="idhal" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *           &lt;element name="resume" type="{http://ns.inria.fr/dsi/si/app/bastri}resume" maxOccurs="2" minOccurs="0"/&gt;
+ *         &lt;/sequence&gt;
+ *         &lt;attribute name="siid" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *         &lt;attribute name="numnatstruct" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *       &lt;/restriction&gt;
+ *     &lt;/complexContent&gt;
+ *   &lt;/complexType&gt;
+ * &lt;/element&gt;
  * </pre>
  * 
  * 
@@ -76,7 +84,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "resume"
 })
 @XmlRootElement(name = "structureinria")
-public class Structureinria {
+public class StructureInria {
 
     @XmlElement(required = true)
     protected String siidEquipeGroupe;
@@ -96,9 +104,10 @@ public class Structureinria {
     protected List<Domaine> domaine;
     @XmlElement(required = true)
     protected List<Theme> theme;
-    @XmlElement(name = "date_creation")
+    @XmlElement(name = "date_creation", type = String.class)
+    @XmlJavaTypeAdapter(DateAdapter.class)
     @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar dateCreation;
+    protected LocalDate dateCreation;
     @XmlElement(name = "date_fermeture")
     protected String dateFermeture;
     @XmlElement(required = true)
@@ -399,10 +408,10 @@ public class Structureinria {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public XMLGregorianCalendar getDateCreation() {
+    public LocalDate getDateCreation() {
         return dateCreation;
     }
 
@@ -411,10 +420,10 @@ public class Structureinria {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public void setDateCreation(XMLGregorianCalendar value) {
+    public void setDateCreation(LocalDate value) {
         this.dateCreation = value;
     }
 
