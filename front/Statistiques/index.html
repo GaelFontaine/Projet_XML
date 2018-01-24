@@ -51,11 +51,16 @@
         <script>
             var dataToInsert = new Array();
             var data = []
-            fetch('http://localhost:9080/stat/nbequipe-par-centre').then(function(response) {
+            fetch('http://127.0.0.1:9080/stat/nbequipe-par-centre').then(function(response) {
                         response.json().then(function(data) {
                             for(var i = 0; i<data.length; i++){
                                 // On récupère les occurence pour chaque centre (le nombre d'équipes pour le centre à l'indice [i]
-                                dataToInsert[i] = data[i].occurence;
+                                if(Number.isInteger(data[i].occurence)){
+                                    dataToInsert[i] = data[i].occurence;
+                                }
+                            }
+                            if(dataToInsert.length == 0){
+                                dataToInsert = [20, 2, 14, 16, 8, 9, 5, 23];
                             }
                         });
 
@@ -81,11 +86,16 @@
         <script>
             var dataToInsert = new Array();
             var data = []
-            fetch('http://localhost:9080/stat/nbpers-par-centre').then(function(response) {
+            fetch('http://127.0.0.1:9080/stat/nbpers-par-centre').then(function(response) {
                 response.json().then(function(data) {
                     for(var i = 0; i<data.length; i++){
                         // On récupère les occurence pour chaque centre (le nombre de personne pour le centre à l'indice [i]
-                        dataToInsert[i] = data[i].occurence;
+                        if(Number.isInteger(data[i].occurence)){
+                            dataToInsert[i] = data[i].occurence;
+                        } else{
+                            dataToInsert[i] = 10;
+                        }
+
                     }
                 });
 
