@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+        <meta charset="utf-8">
+        <title>Statistics data</title>
+        <link type="text/css" rel="stylesheet" href="./style.css">
+        <link type="text/css" rel="stylesheet" href="./statistics.css">
+    </head>
+    <body>
+        <div id="menu">
+            <ul>
+                <li>
+                      <a href="../Projets/projet.html">Les Projets</a>
+                </li>
+                <li>
+                    <a>Les Centres</a>
+                    <div></div>
+                    <ul id="secondlist">
+                        <li>CRI Bordeaux</li>
+                        <li>CRI Grenoble</li>
+                        <li>CRI Lille</li>
+                        <li>CRI Nancy</li>
+                        <li>CRI Paris</li>
+                        <li>CRI Rennes</li>
+                        <li>CRI Sophia Antipolis</li>
+                        <li>CRI Saclay</li>
+                    </ul>
+                </li>
+                <li>
+                    <a>Statistique</a>
+                </li>
+                <li>
+                    <a>Contact</a>
+                </li>
+                <li>
+                    <a>About Us</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="content-item">
+            <div class="content ct-chart">
+                <h1>Team number by research center</h1>
+            </div>
+
+        </div>
+        <link href="chartist.css" rel="stylesheet" type="text/css">
+        <script src='chartist.js'></script>
+
+        <script>
+            new Chartist.Bar('.ct-chart', {
+                labels: ["Paris", "Saclay", "Nancy", "Grenoble", "Sophia", "Lilles", "Rennes", "Bordeaux"],
+                series: [20, 2, 14, 16, 8, 9, 5, 23]
+            }, {
+                height: '300px',
+                distributeSeries: true
+            });
+        </script>
+
+        <div class="content-item">
+            <div class="content ct-chart2">
+                <h1>Number of team by Domain</h1>
+            </div>
+
+        </div>
+        <link href="chartist.css" rel="stylesheet" type="text/css">
+        <script src='chartist.js'></script>
+
+        <script>
+            // label externe
+            var data = {
+                // récupérer depuis bd
+                labels: ['Biologie', 'Informatique', 'Zizi'],
+                series: [20, 15, 40]
+            };
+
+            var options = {
+                labelInterpolationFnc: function(value) {
+                    return value[0]
+                }
+            };
+
+            var responsiveOptions = [
+                ['screen and (min-width: 640px)', {
+                    chartPadding: 30,
+                    labelOffset: 100,
+                    labelDirection: 'explode',
+                    labelInterpolationFnc: function(value) {
+                        return value;
+                    }
+                }],
+                ['screen and (min-width: 1024px)', {
+                    labelOffset: 80,
+                    chartPadding: 20
+                }]
+            ];
+            new Chartist.Pie('.ct-chart2', data, options, responsiveOptions);
+        </script>
+
+</body>
+</html>
