@@ -71,13 +71,13 @@ public class CRService {
     @GET
     @Path("infoCentre")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Crs.Cr> getAllCR(){
+    public List<CentreDeRecherche> getAllCR(){
         queryUtil = new XQueryUtil();
         XQResultSequence res = null;
-        List<Crs.Cr> cr = new ArrayList<>();
+        List<CentreDeRecherche> cr = new ArrayList<>();
         try {
             queryUtil.connect();
-            queryUtil.setXQueryReq("for $i in doc('/home/thiaw/MIAGE_TP_XML_2017-master/tp7/projetmgag/src/main/resources/xmlbastriCris.xml')//cr return <infoCentre>{$i/numnatstructrep,$i/date_ouverture,$i/sigle, $i/libelle,$i/idgef,<AddGeo>{$i/adressegeographique/ville,$i/adressegeographique/latitude,$i/adressegeographique/longitude}</AddGeo>,<nbPers>{count($i/responsable)}</nbPers>}</infoCentre>");
+            queryUtil.setXQueryReq("for $i in doc('db/raweb/bastriCris.xml')//cr return <infoCentre>{$i/numnatstructrep,$i/date_ouverture,$i/sigle, $i/libelle,$i/idgef,<AddGeo>{$i/adressegeographique/ville,$i/adressegeographique/latitude,$i/adressegeographique/longitude}</AddGeo>,<nbPers>{count($i/responsable)}</nbPers>}</infoCentre>");
             res = queryUtil.getResult();
 
             JAXBContext jaxbContext = JAXBContext.newInstance(CentreDeRecherche.class);
@@ -87,11 +87,12 @@ public class CRService {
                 XQItem item = res.getItem();
                 System.out.println(item.getItemAsString(null));
                 CentreDeRecherche thisCr = (CentreDeRecherche) jaxbUnmarshaller.unmarshal(item.getNode());
-
+/*
                 NodeList childNodes = item.getNode().getChildNodes();
 
                 final Node childNode = childNodes.item(3);
                 thisCr.setDate_ouverture(new Date(childNode.getTextContent()));
+                */
                 cr.add(thisCr);
             }
         } catch (XQException e) {
