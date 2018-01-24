@@ -90,11 +90,12 @@
                 });
 
             })
+            var total = dataToInsert[0] + dataToInsert[1] + dataToInsert[2] + dataToInsert[3] + dataToInsert[4] + dataToInsert[5] + dataToInsert[6] + dataToInsert[7];
             // label externe
             var data = {
                 // récupérer depuis bd
                 labels: ['Bordeaux', 'Grenoble', 'Lille', 'Nancy', 'Paris', 'Rennes', 'Sophia Antipolis', 'Saclay'],
-                series: [10, 10, 10, 10, 10, 10, 10, 10]
+                series: [100*(dataToInsert[0]/total), 100*(dataToInsert[1]/total), 100*(dataToInsert[2]/total), 100*(dataToInsert[3]/total), 100*(dataToInsert[4]/total), 100*(dataToInsert[5]/total), 100*(dataToInsert[6]/total), 100*(dataToInsert[7]/total)]
             };
 
             var options = {
