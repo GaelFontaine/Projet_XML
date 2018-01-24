@@ -1,0 +1,89 @@
+/* CSS Document */
+#map{
+	width: 100%;
+	height: 80%;
+}
+      /* Optional: Makes the sample page fill the window. */
+html, body {
+	height: 100%;
+    margin: 0;
+    padding: 0;
+}
+li{
+	cursor: pointer;
+}
+a{
+	text-decoration: none;
+	color:rgba(36,36,36,1.00);
+}
+#menu{
+	width: 100%;
+	height: 40px;
+}
+#menu>ul{
+	/*width: calc(270*5+ 5)px;*/
+	display: block;
+	margin: 0 auto;
+}
+#menu>ul>li{
+	line-height: 40px;
+	list-style: none;
+	float: left;
+	width: 270px;
+	border-top: 0px;
+	border-bottom: 0px;
+	border-left: 0px;
+	border-right: 1px;
+	border-style: solid;
+	border-color:rgba(144,144,144,0.10);
+	text-align: center;
+	font-family: "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei";
+	font-weight: 100;
+	font-size: 20px;
+}
+#menu>li:last-child{
+	border-right: 0px;
+}
+#menu li:hover{
+	background-color:rgba(238,238,238,0.80);
+}
+#secondlist{
+	list-style: none;
+	height: 0px;
+	width: 271px;
+	position: absolute;
+	z-index: 100;
+	background-color: rgba(238,238,238,0.40);
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+	transition-property: height;
+	transition-duration: 0.3s;
+}
+#menu>ul>li:hover #secondlist{
+	height: 240px;
+}
+#secondlist>li{
+	background-color: rgba(238,238,238,0.40);
+	width: 271px;
+	height: 30px;
+	line-height: 30px;
+	border-right: 0px;
+	font-size: 15px;
+}
+#secondlist>li:hover{
+	border-color: rgba(238,238,238,0.80);
+}
+
+.content{
+	width:100%;
+	margin-top: 10%;
+}
+h1{
+	width:20%;
+	margin-left: auto;
+	margin-right: auto;
+}
+p{
+	text-align:center;
+}
