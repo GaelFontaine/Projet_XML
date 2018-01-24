@@ -2,7 +2,7 @@
 // Ce fichier a été généré par l'implémentation de référence JavaTM Architecture for XML Binding (JAXB), v2.2.11 
 // Voir <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Toute modification apportée à ce fichier sera perdue lors de la recompilation du schéma source. 
-// Généré le : 2018.01.17 à 01:24:44 PM CET 
+// Généré le : 2018.01.24 à 06:22:51 PM CET 
 //
 
 
@@ -15,6 +15,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import org.inria.fr.ns.adapters.BooleanAdapter;
 
 
 /**
@@ -72,7 +74,8 @@ public class Entite {
     @XmlElement(name = "lien_structure_exterieure")
     protected List<LienStructureExterieure> lienStructureExterieure;
     @XmlAttribute(name = "principal")
-    protected String principal;
+    @XmlJavaTypeAdapter(BooleanAdapter.class)
+    protected Boolean principal;
     @XmlAttribute(name = "codestructure")
     protected String codestructure;
     @XmlAttribute(name = "siid")
@@ -259,7 +262,7 @@ public class Entite {
      *     {@link String }
      *     
      */
-    public String getPrincipal() {
+    public Boolean isPrincipal() {
         return principal;
     }
 
@@ -271,7 +274,7 @@ public class Entite {
      *     {@link String }
      *     
      */
-    public void setPrincipal(String value) {
+    public void setPrincipal(Boolean value) {
         this.principal = value;
     }
 

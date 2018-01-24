@@ -5,11 +5,21 @@
 	   xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	   xmlns:bastri="http://ns.inria.fr/dsi/si/app/bastri"
 	   xmlns:resrc="http://ns.inria.fr/dsi/si/app/resources"
-	   version="1.0">
+	   version="1.0"
+
+           xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+           xmlns:annox="http://annox.dev.java.net"
+           jaxb:version="2.1">
 
 
  <xs:element name="structureInrias">
-    <xs:complexType> 
+     <!--
+     <xs:annotation>
+         <xs:appinfo>
+             <annox:annotate>@javax.xml.bind.annotation.XmlRootElement(name="StructureInrias")</annox:annotate>
+         </xs:appinfo>
+     </xs:annotation> -->
+    <xs:complexType>
       <xs:sequence> 
 	<xs:element ref="bastri:structureinria"    minOccurs ="0" maxOccurs="unbounded"/>
       </xs:sequence>
@@ -34,6 +44,9 @@
       <xs:documentation xml:lang="fr">
 	Définition d'une EPI
       </xs:documentation>
+        <xs:appinfo>
+            <jaxb:class name="StructureInria"/>
+        </xs:appinfo>
     </xs:annotation> 
     <xs:complexType> 
      <xs:sequence>     

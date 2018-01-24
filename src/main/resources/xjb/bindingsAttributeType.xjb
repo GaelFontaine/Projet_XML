@@ -1,0 +1,32 @@
+<jaxb:bindings
+        xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+        xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        version="2.1"
+                    >
+<jaxb:bindings schemaLocation="../xsd/bastri.xsd"
+               node="//xs:complexType[@name='entite']//xs:attribute[@name='principal']" >
+    <jaxb:property>
+        <jaxb:baseType>
+            <xjc:javaType name="java.lang.Boolean"
+                          adapter="org.inria.fr.ns.adapters.BooleanAdapter"/>
+        </jaxb:baseType>
+    </jaxb:property>
+</jaxb:bindings>
+</jaxb:bindings>
+<!--
+<bindings
+        xmlns="http://java.sun.com/xml/ns/jaxb"
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+        version="2.0">
+    <bindings schemalocation="../xsd/bastri.xsd">
+        <bindings node="/xs:schema/xs:complexType[@name='entite']">
+            <bindings node="//xs:attribute[@name='principal']">
+                        <xjc:javaType adapter="org.inria.fr.ns.adapters.BooleanAdapter"
+                                      name="java.lang.Boolean" />
+            </bindings>
+        </bindings>
+    </bindings>
+</bindings>
+-->

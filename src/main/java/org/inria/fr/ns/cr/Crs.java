@@ -2,12 +2,13 @@
 // Ce fichier a été généré par l'implémentation de référence JavaTM Architecture for XML Binding (JAXB), v2.2.11 
 // Voir <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Toute modification apportée à ce fichier sera perdue lors de la recompilation du schéma source. 
-// Généré le : 2018.01.17 à 01:24:44 PM CET 
+// Généré le : 2018.01.24 à 06:22:51 PM CET 
 //
 
 
 package org.inria.fr.ns.cr;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -18,7 +19,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlValue;
-import javax.xml.datatype.XMLGregorianCalendar;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import org.inria.fr.ns.adapters.DateAdapter;
 
 
 /**
@@ -235,12 +237,14 @@ public class Crs {
 
         @XmlElement(required = true)
         protected String numnatstructrep;
-        @XmlElement(name = "date_ouverture", required = true)
+        @XmlElement(name = "date_ouverture", required = true, type = String.class)
+        @XmlJavaTypeAdapter(DateAdapter.class)
         @XmlSchemaType(name = "date")
-        protected XMLGregorianCalendar dateOuverture;
-        @XmlElement(name = "date_fermeture", required = true)
+        protected LocalDate dateOuverture;
+        @XmlElement(name = "date_fermeture", required = true, type = String.class)
+        @XmlJavaTypeAdapter(DateAdapter.class)
         @XmlSchemaType(name = "date")
-        protected XMLGregorianCalendar dateFermeture;
+        protected LocalDate dateFermeture;
         @XmlElement(required = true)
         protected String sigle;
         @XmlElement(required = true)
@@ -281,10 +285,10 @@ public class Crs {
          * 
          * @return
          *     possible object is
-         *     {@link XMLGregorianCalendar }
+         *     {@link String }
          *     
          */
-        public XMLGregorianCalendar getDateOuverture() {
+        public LocalDate getDateOuverture() {
             return dateOuverture;
         }
 
@@ -293,10 +297,10 @@ public class Crs {
          * 
          * @param value
          *     allowed object is
-         *     {@link XMLGregorianCalendar }
+         *     {@link String }
          *     
          */
-        public void setDateOuverture(XMLGregorianCalendar value) {
+        public void setDateOuverture(LocalDate value) {
             this.dateOuverture = value;
         }
 
@@ -305,10 +309,10 @@ public class Crs {
          * 
          * @return
          *     possible object is
-         *     {@link XMLGregorianCalendar }
+         *     {@link String }
          *     
          */
-        public XMLGregorianCalendar getDateFermeture() {
+        public LocalDate getDateFermeture() {
             return dateFermeture;
         }
 
@@ -317,10 +321,10 @@ public class Crs {
          * 
          * @param value
          *     allowed object is
-         *     {@link XMLGregorianCalendar }
+         *     {@link String }
          *     
          */
-        public void setDateFermeture(XMLGregorianCalendar value) {
+        public void setDateFermeture(LocalDate value) {
             this.dateFermeture = value;
         }
 

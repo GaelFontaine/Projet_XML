@@ -11,6 +11,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <kotlin.version>1.2.20</kotlin.version>
     </properties>
 
     <dependencies>
@@ -86,6 +87,23 @@
             <version>20090211</version>
         </dependency>
 
+        <!-- for bindingDate-->
+        <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-runtime</artifactId>
+            <version>2.2.11</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-xjc</artifactId>
+            <version>2.2.11</version>
+        </dependency>
+
+        <!-- <dependency>
+            <groupId>org.jvnet.jaxb2_commons</groupId>
+            <artifactId>jaxb2-basics-annotate</artifactId>
+        </dependency> -->
+
     </dependencies>
     <build>
         <finalName>projet-mgag</finalName>
@@ -112,64 +130,145 @@
                     </execution>
                 </executions>
             </plugin>
-
-
             <plugin>
                 <groupId>org.jvnet.jaxb2.maven2</groupId>
                 <artifactId>maven-jaxb2-plugin</artifactId>
-                <version>0.13.1</version>
+                <version>0.13.3</version>
 
                 <executions>
                     <execution>
-                        <!-- generer des classes a partir de bastri.xsd-->
                         <id>equipes</id>
-                        <phase>generate-sources</phase>
+                       <!--  <phase>generate-sources</phase> -->
                         <goals>
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <!-- le repertoire ou se situe bastri.xsd-->
+
                             <schemaDirectory>src/main/resources/xsd</schemaDirectory>
-                            <!-- ignore la date -->
-                            <forceRegenerate>true</forceRegenerate>
-                            <!-- le package ou on va generer les classe -->
-                            <generatePackage>org.inria.fr.ns.sr</generatePackage>
-                            <!-- le repertoire ou on va creer les packages -->
-                            <generateDirectory>src/main/java</generateDirectory>
                             <schemaIncludes>
                                 <include>bastri.xsd</include>
                             </schemaIncludes>
-                            <!-- By default, nothing is excluded. -->
-                            <schemaExcludes>
-                                <exclude>*.xs</exclude>
-                            </schemaExcludes>
+
+                            <bindingDirectory>src/main/resources/xjb</bindingDirectory>
+                            <bindingIncludes>
+                                <include>bindingDate.xjb</include>
+                                 <include>bindingsClassName.xjb</include>
+                                <include>bindingsAttributeType.xjb</include>
+                            </bindingIncludes>
+
+                            <generateDirectory>src/main/java</generateDirectory>
+                            <generatePackage>org.inria.fr.ns.sr</generatePackage>
+                        <!--
+                            <extension>true</extension>
+                            <args>
+                                <arg>-Xannotate</arg>
+                            </args>
+                            <plugins>
+                                <plugin>
+                                    <groupId>org.jvnet.jaxb2_commons</groupId>
+                                    <artifactId>jaxb2-basics-annotate</artifactId>
+                                    <version>1.0.4</version>
+                                </plugin>
+                                <plugin>
+                                    <groupId>org.jvnet.jaxb2_commons</groupId>
+                                    <artifactId>jaxb2-annotate-plugin-test-annox-annotations</artifactId>
+                                    <version>1.0.0</version>
+                                </plugin>
+                            </plugins>
+                            -->
                         </configuration>
                     </execution>
 
                     <execution>
                         <id>centres</id>
-                        <phase>generate-sources</phase>
+                       <!--  <phase>generate-sources</phase> -->
                         <goals>
                             <goal>generate</goal>
                         </goals>
                         <configuration>
 
                             <schemaDirectory>src/main/resources/xsd</schemaDirectory>
-                            <!-- forceregenerate empeche la verification de la date du dernier modif -->
-                            <forceRegenerate>true</forceRegenerate>
-                            <generatePackage>org.inria.fr.ns.cr</generatePackage>
-                            <generateDirectory>src/main/java</generateDirectory>
                             <schemaIncludes>
                                 <include>bastriCris.xsd</include>
                             </schemaIncludes>
-                            <!-- By default, nothing is excluded. -->
-                            <schemaExcludes>
-                                <exclude>*.xs</exclude>
-                            </schemaExcludes>
+
+                            <bindingDirectory>src/main/resources/xjb</bindingDirectory>
+                            <bindingIncludes>
+                                <include>bindingDate.xjb</include>
+                            </bindingIncludes>
+
+                            <generateDirectory>src/main/java</generateDirectory>
+                            <generatePackage>org.inria.fr.ns.cr</generatePackage>
+
+                            <!--
+                            <extension>true</extension>
+                            <args>
+                                <arg>-Xannotate</arg>
+                            </args>
+                            <plugins>
+                                <plugin>
+                                    <groupId>org.jvnet.jaxb2_commons</groupId>
+                                    <artifactId>jaxb2-basics-annotate</artifactId>
+                                    <version>1.0.4</version>
+                                </plugin>
+                                <plugin>
+                                    <groupId>org.jvnet.jaxb2_commons</groupId>
+                                    <artifactId>jaxb2-annotate-plugin-test-annox-annotations</artifactId>
+                                    <version>1.0.0</version>
+                                </plugin>
+                            </plugins>
+                            -->
+
                         </configuration>
                     </execution>
                 </executions>
 
+            </plugin>
+
+
+            <plugin>
+                <groupId>org.jetbrains.kotlin</groupId>
+                <artifactId>kotlin-maven-plugin</artifactId>
+                <version>${kotlin.version}</version>
+                <executions>
+                    <execution>
+                        <id>compile</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>test-compile</id>
+                        <phase>test-compile</phase>
+                        <goals>
+                            <goal>test-compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <jvmTarget>1.8</jvmTarget>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>compile</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>testCompile</id>
+                        <phase>test-compile</phase>
+                        <goals>
+                            <goal>testCompile</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
         <outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/classes</outputDirectory>
