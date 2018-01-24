@@ -11,10 +11,10 @@ function getDataOfCenters(){
 	}).then(function(data){
 //		dataOfCenters = data;
 		
-		for(var i = 0; i<data.length;i++){
+		for(var i = 0; i<data.Latitude.length;i++){
 			var obj = {lat : null , lng : null};
-			obj.lat = Number(data[i].AddGeo.latitude);
-			obj.lng = Number(data[i].AddGeo.longitude);
+			obj.lat = Number(data.Latitude[i]);
+			obj.lng = Number(data.Longitude[i]);
 			locations[i] = obj;
 		}
 		console.log(locations);
