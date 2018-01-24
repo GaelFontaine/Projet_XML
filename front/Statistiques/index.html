@@ -49,9 +49,20 @@
         <script src='chartist.js'></script>
 
         <script>
+            var dataToInsert = new Array();
+            var data = []
+            fetch('http://localhost:9080/stat/nbequipe-par-centre').then(function(response) {
+                        response.json().then(function(data) {
+                            for(var i = 0; i<data.length; i++){
+                                // On récupère les occurence pour chaque centre (le nombre d'équipes pour le centre à l'indice [i]
+                                dataToInsert[i] = data[i].occurence;
+                            }
+                        });
+
+                    })
             new Chartist.Bar('.ct-chart', {
-                labels: ["Paris", "Saclay", "Nancy", "Grenoble", "Sophia", "Lilles", "Rennes", "Bordeaux"],
-                series: [20, 2, 14, 16, 8, 9, 5, 23]
+                labels: ["Bordeaux", "Grenoble", "Lille", "Nancy", "Paris", "Rennes", "Sophia Antipolis", "Saclay"],
+                series: [dataToInsert[0], dataToInsert[1], dataToInsert[2], dataToInsert[3], dataToInsert[4], dataToInsert[5], dataToInsert[6], dataToInsert[7]]
             }, {
                 height: '300px',
                 distributeSeries: true
@@ -60,7 +71,7 @@
 
         <div class="content-item">
             <div class="content ct-chart2">
-                <h1>Number of team by Domain</h1>
+                <h1>Nombre de personnes par centre</h1>
             </div>
 
         </div>
@@ -68,11 +79,22 @@
         <script src='chartist.js'></script>
 
         <script>
+            var dataToInsert = new Array();
+            var data = []
+            fetch('http://localhost:9080/stat/nbpers-par-centre').then(function(response) {
+                response.json().then(function(data) {
+                    for(var i = 0; i<data.length; i++){
+                        // On récupère les occurence pour chaque centre (le nombre de personne pour le centre à l'indice [i]
+                        dataToInsert[i] = data[i].occurence;
+                    }
+                });
+
+            })
             // label externe
             var data = {
                 // récupérer depuis bd
-                labels: ['Biologie', 'Informatique', 'Zizi'],
-                series: [20, 15, 40]
+                labels: ['Bordeaux', 'Grenoble', 'Lille', 'Nancy', 'Paris', 'Rennes', 'Sophia Antipolis', 'Saclay'],
+                series: [10, 10, 10, 10, 10, 10, 10, 10]
             };
 
             var options = {
