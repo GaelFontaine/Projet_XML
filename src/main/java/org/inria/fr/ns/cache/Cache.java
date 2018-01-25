@@ -59,10 +59,10 @@ public class Cache {
             // On sauvegarde dans une variable static le contenu des adresses qu'on fait persister dans la mémoire de l'ordinateur pendant 24h avant de le recharger
             for (Crs.Cr c : centres.getCr()) {
                 Cache.adressesCache += "\n<numnatstructrep>"+c.getAdressegeographique().getVille()+"</numnatstructrep>\n" ;
-                Cache.adressesCache += "\n<date_ouverture>"+c.getAdressegeographique().getVille()+"</date_ouverture>\n" ;
-                Cache.adressesCache += "\n<sigle>"+c.getAdressegeographique().getVille()+"</sigle>\n" ;
-                Cache.adressesCache += "\n<libelle>"+c.getAdressegeographique().getVille()+"</libelle>\n" ;
-                Cache.adressesCache += "\n<idgef>"+c.getAdressegeographique().getVille()+"</idgef>\n" ;
+                Cache.adressesCache += "\n<date_ouverture>"+c.getDateOuverture()+"</date_ouverture>\n" ;
+                Cache.adressesCache += "\n<sigle>"+c.getSigle()+"</sigle>\n" ;
+                Cache.adressesCache += "\n<libelle>"+c.getLibelle()+"</libelle>\n" ;
+                Cache.adressesCache += "\n<idgef>"+c.getIdgef()+"</idgef>\n" ;
                 Cache.adressesCache += "\n<Latitude>"+c.getAdressegeographique().getLatitude() +"</Latitude>\n" ;
                 Cache.adressesCache += "\n<Longitude>"+c.getAdressegeographique().getLongitude() +"</Longitude>\n" ;
             }
